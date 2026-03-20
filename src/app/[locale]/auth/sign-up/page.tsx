@@ -3,7 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 
-export default function SignUpPage({ params }: { params: { locale: string } }) {
+export default async function SignUpPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   return (
     <div className="mx-auto max-w-md px-6 py-16">
       <Card>
@@ -20,7 +21,7 @@ export default function SignUpPage({ params }: { params: { locale: string } }) {
           </div>
           <Button className="w-full">Create account</Button>
           <p className="text-center text-xs text-root-500">
-            Already have an account? <Link className="text-forest-roots" href={`/${params.locale}/auth/sign-in`}>Sign in</Link>
+            Already have an account? <Link className="text-forest-roots" href={`/${locale}/auth/sign-in`}>Sign in</Link>
           </p>
         </CardContent>
       </Card>

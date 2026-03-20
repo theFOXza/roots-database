@@ -15,12 +15,13 @@ const pillarLabels = [
   "⚠️ Safety"
 ];
 
-export default function RemedyDetailPage({
+export default async function RemedyDetailPage({
   params
 }: {
-  params: { slug: string; locale: string };
+  params: Promise<{ slug: string; locale: string }>;
 }) {
-  const remedy = remedies.find((item) => item.slug === params.slug);
+  const { slug, locale } = await params;
+  const remedy = remedies.find((item) => item.slug === slug);
 
   if (!remedy) {
     notFound();
@@ -100,12 +101,12 @@ export default function RemedyDetailPage({
             <CardContent className="pt-6">
               <h2 className="font-heading text-2xl">Community Stories</h2>
               <div className="mt-4 flex items-center justify-between">
-                <p className="text-sm text-root-600">2,341 people said “I use this too!”</p>
+                <p className="text-sm text-root-600">2,341 people said &quot;I use this too!&quot;</p>
                 <Button size="sm">I use this too!</Button>
               </div>
               <div className="mt-4 space-y-3 text-sm text-root-600">
-                <p>“My grandmother used this every winter, and it still works.”</p>
-                <p>“We add it to tea before big family gatherings.”</p>
+                <p>&quot;My grandmother used this every winter, and it still works.&quot;</p>
+                <p>&quot;We add it to tea before big family gatherings.&quot;</p>
               </div>
             </CardContent>
           </Card>
@@ -143,7 +144,7 @@ export default function RemedyDetailPage({
                 {remedies.slice(0, 2).map((item) => (
                   <Link
                     key={item.slug}
-                    href={`/${params.locale}/remedies/${item.slug}`}
+                    href={`/${locale}/remedies/${item.slug}`}
                     className="block text-forest-roots"
                   >
                     {item.name} →

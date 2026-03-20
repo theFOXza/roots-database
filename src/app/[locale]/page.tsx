@@ -9,8 +9,9 @@ import { ScoreBadge } from "@/components/score/ScoreBadge";
 export default async function LandingPage({
   params
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
   const t = await getTranslations("landing");
   const featured = remedies.slice(0, 3);
 
@@ -26,10 +27,10 @@ export default async function LandingPage({
             <p className="mt-4 max-w-xl text-lg text-root-600">{t("heroSubtitle")}</p>
             <div className="mt-6 flex flex-wrap gap-4">
               <Button size="lg" asChild>
-                <Link href={`/${params.locale}/submit`}>{t("ctaSubmit")}</Link>
+                <Link href={`/${locale}/submit`}>{t("ctaSubmit")}</Link>
               </Button>
               <Button size="lg" variant="secondary" asChild>
-                <Link href={`/${params.locale}/remedies`}>{t("ctaBrowse")}</Link>
+                <Link href={`/${locale}/remedies`}>{t("ctaBrowse")}</Link>
               </Button>
             </div>
             <div className="mt-6 rounded-lg border border-root-200 bg-linen p-4">
@@ -102,11 +103,11 @@ export default async function LandingPage({
         <div className="mx-auto max-w-6xl px-6 py-16">
           <div className="flex items-center justify-between gap-4">
             <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-root-500">This Week's Gold Roots</p>
+              <p className="text-xs uppercase tracking-[0.2em] text-root-500">This Week&apos;s Gold Roots</p>
               <h2 className="mt-2 font-heading text-3xl">Featured Remedies</h2>
             </div>
             <Button variant="ghost" asChild>
-              <Link href={`/${params.locale}/remedies`}>View all</Link>
+              <Link href={`/${locale}/remedies`}>View all</Link>
             </Button>
           </div>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
@@ -121,7 +122,7 @@ export default async function LandingPage({
                     <span>📜 Deep heritage</span>
                   </div>
                   <Button variant="ghost" className="mt-4 px-0" asChild>
-                    <Link href={`/${params.locale}/remedies/${remedy.slug}`}>Read full report →</Link>
+                    <Link href={`/${locale}/remedies/${remedy.slug}`}>Read full report →</Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -138,7 +139,7 @@ export default async function LandingPage({
             Join thousands of families preserving ancestral knowledge and helping the world rediscover what works.
           </p>
           <Button className="mt-6" asChild>
-            <Link href={`/${params.locale}/submit`}>Was your grandmother right? Find out →</Link>
+            <Link href={`/${locale}/submit`}>Was your grandmother right? Find out →</Link>
           </Button>
         </div>
       </section>

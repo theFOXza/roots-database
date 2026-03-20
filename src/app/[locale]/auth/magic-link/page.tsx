@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 
-export default function MagicLinkPage({ params }: { params: { locale: string } }) {
+export default async function MagicLinkPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   return (
     <div className="mx-auto max-w-md px-6 py-16">
       <Card>
@@ -10,7 +11,7 @@ export default function MagicLinkPage({ params }: { params: { locale: string } }
           <p className="text-sm text-root-600">
             We sent a magic link to your inbox. Click it to finish signing in.
           </p>
-          <Link className="text-sm text-forest-roots" href={`/${params.locale}/auth/sign-in`}>
+          <Link className="text-sm text-forest-roots" href={`/${locale}/auth/sign-in`}>
             Back to sign in
           </Link>
         </CardContent>

@@ -3,7 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 
-export default function SignInPage({ params }: { params: { locale: string } }) {
+export default async function SignInPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   return (
     <div className="mx-auto max-w-md px-6 py-16">
       <Card>
@@ -22,7 +23,7 @@ export default function SignInPage({ params }: { params: { locale: string } }) {
             <Button className="w-full">Send magic link</Button>
           </div>
           <p className="text-center text-xs text-root-500">
-            No account? <Link className="text-forest-roots" href={`/${params.locale}/auth/sign-up`}>Create one</Link>
+            No account? <Link className="text-forest-roots" href={`/${locale}/auth/sign-up`}>Create one</Link>
           </p>
         </CardContent>
       </Card>

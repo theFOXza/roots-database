@@ -5,7 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { remedies } from "@/data/remedies";
 import { ScoreBadge } from "@/components/score/ScoreBadge";
 
-export default function RemediesPage({ params }: { params: { locale: string } }) {
+export default async function RemediesPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   return (
     <div className="mx-auto max-w-6xl px-6 py-12">
       <div className="mb-8 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
@@ -49,7 +50,7 @@ export default function RemediesPage({ params }: { params: { locale: string } })
                 ))}
               </div>
               <Link
-                href={`/${params.locale}/remedies/${remedy.slug}`}
+                href={`/${locale}/remedies/${remedy.slug}`}
                 className="mt-4 inline-flex text-sm font-semibold text-forest-roots"
               >
                 View remedy →

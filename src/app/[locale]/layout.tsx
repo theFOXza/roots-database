@@ -28,13 +28,14 @@ export default async function LocaleLayout({
   params
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
   const messages = await getMessages();
 
   return (
     <div className={cn(lora.variable, inter.variable, playfair.variable)}>
-      <NextIntlClientProvider messages={messages} locale={params.locale}>
+      <NextIntlClientProvider messages={messages} locale={locale}>
         <Navbar />
         <main className="min-h-screen bg-parchment">{children}</main>
         <Footer />
