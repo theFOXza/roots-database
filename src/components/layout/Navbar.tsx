@@ -1,58 +1,51 @@
 "use client";
 
 import Link from "next/link";
-import { useLocale, useTranslations } from "next-intl";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import Image from "next/image";
+import { useLocale } from "next-intl";
 
 const navLinks = [
-  { key: "home", href: "/" },
-  { key: "browse", href: "/remedies" },
-  { key: "submit", href: "/submit" },
-  { key: "challenge", href: "/challenge" },
-  { key: "leaderboard", href: "/leaderboard" },
-  { key: "pricing", href: "/pricing" },
-  { key: "about", href: "/about" }
+  { label: "About", href: "/about" },
+  { label: "Remedies", href: "/remedies" },
+  { label: "Submit", href: "/submit" }
 ];
 
 export function Navbar() {
-  const t = useTranslations("nav");
   const locale = useLocale();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-ancient-bark/60 bg-forest-roots/95 shadow-sm backdrop-blur">
+    <header className="sticky top-0 z-40 bg-[#0d2818]">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href={`/${locale}`} className="text-lg font-semibold text-parchment">
-          <span className="font-heading">The Roots Database</span>
-          <span className="ml-2 text-xs uppercase tracking-[0.2em] text-ancestral-gold">by AAS</span>
+        <Link href={`/${locale}`} className="flex items-center gap-3">
+          <Image
+            src="/images/logo.png"
+            alt="The Roots Database logo"
+            width={40}
+            height={40}
+            className="h-10 w-10 object-contain"
+          />
+          <div className="flex items-baseline gap-2">
+            <span className="font-heading text-xl text-[#F8F4ED]">THE ROOTS</span>
+            <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[#C9A84C]">DATABASE</span>
+          </div>
         </Link>
-        <nav className="hidden items-center gap-6 text-sm lg:flex">
+        <nav className="hidden items-center gap-8 lg:flex">
           {navLinks.map((item) => (
             <Link
-              key={item.key}
+              key={item.href}
               href={`/${locale}${item.href}`}
-              className={cn(
-                "text-root-100 transition hover:text-ancestral-gold",
-                item.key === "submit" && "font-semibold text-ancestral-gold"
-              )}
+              className="text-sm text-[#d4ccb8] transition hover:text-[#C9A84C]"
             >
-              {t(item.key)}
+              {item.label}
             </Link>
           ))}
+          {/* Hamburger placeholder */}
+          <button className="flex flex-col gap-1.5 p-1">
+            <span className="block h-0.5 w-5 bg-[#d4ccb8]" />
+            <span className="block h-0.5 w-5 bg-[#d4ccb8]" />
+            <span className="block h-0.5 w-5 bg-[#d4ccb8]" />
+          </button>
         </nav>
-        <div className="flex items-center gap-3">
-          <Button
-            variant="secondary"
-            size="sm"
-            className="border-parchment text-parchment hover:bg-parchment hover:text-forest-roots"
-            asChild
-          >
-            <Link href={`/${locale}/auth/sign-in`}>{t("signIn")}</Link>
-          </Button>
-          <Button size="sm" asChild>
-            <Link href={`/${locale}/submit`}>{t("submit")}</Link>
-          </Button>
-        </div>
       </div>
     </header>
   );
