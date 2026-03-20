@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
@@ -57,16 +58,7 @@ export function Navbar() {
       <header className={`site-header${isScrolled ? " scrolled" : ""}`} id="siteHeader">
         <div className="header-inner">
           <Link href={`/${locale}`} className="logo" aria-label="The Roots Database - Home">
-            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M18 3C18 3 12 10 12 18c0 4 1.5 7 3 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              <path d="M18 3C18 3 24 10 24 18c0 4-1.5 7-3 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              <path d="M18 3v30" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              <path d="M10 14c2.5 1 5.5 1 8 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
-              <path d="M18 14c2.5 1 5.5 1 8 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
-              <path d="M9 20c3 1.2 6 1.2 9 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
-              <path d="M18 20c3 1.2 6 1.2 9 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
-              <circle cx="18" cy="33" r="1.5" fill="currentColor" opacity="0.4" />
-            </svg>
+            <Image src="/images/logo.png" alt="The Roots Database" width={36} height={36} style={{ objectFit: "contain" }} />
             <div className="logo-text">
               The Roots<span>Database</span>
             </div>

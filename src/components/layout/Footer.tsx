@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 
 export function Footer() {
@@ -13,12 +14,8 @@ export function Footer() {
       <div className="footer-inner">
         <div className="footer-grid">
           <div className="footer-brand">
-            <Link href={`/${locale}`} className="logo" style={{ marginBottom: "var(--space-2)" }}>
-              <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="28" height="28">
-                <path d="M18 3C18 3 12 10 12 18c0 4 1.5 7 3 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                <path d="M18 3C18 3 24 10 24 18c0 4-1.5 7-3 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                <path d="M18 3v30" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              </svg>
+            <Link href={`/${locale}`} className="logo" style={{ marginBottom: "var(--space-2)", display: "flex", alignItems: "center", gap: "var(--space-2)" }}>
+              <Image src="/images/logo.png" alt="The Roots Database" width={28} height={28} style={{ objectFit: "contain" }} />
               <div className="logo-text" style={{ fontSize: "var(--text-base)" }}>
                 The Roots<span>Database</span>
               </div>
@@ -42,9 +39,7 @@ export function Footer() {
         </div>
         <div className="footer-bottom">
           <p>(c) 2026 Ancient African Secrets. All rights reserved.</p>
-          <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">
-            Created with Perplexity Computer
-          </a>
+          <span>A project by Ancient African Secrets</span>
         </div>
         <p className="footer-disclaimer">
           {tFooter("disclaimer")} This platform does not endorse or guarantee the efficacy or safety of any remedy listed.
