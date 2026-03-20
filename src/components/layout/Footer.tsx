@@ -15,7 +15,7 @@ export function Footer() {
   const locale = useLocale();
 
   return (
-    <footer className="bg-ancient-bark text-parchment">
+    <footer className="footer-heritage bg-ancient-bark text-parchment">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-12 md:grid-cols-[1.5fr_1fr]">
         <div>
           <h2 className="font-heading text-2xl">The Roots Database</h2>

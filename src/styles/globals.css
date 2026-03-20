@@ -57,6 +57,25 @@ body {
   border: 1px solid var(--color-root-200);
 }
 
+.hero-heritage {
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(201, 168, 76, 0.18), transparent 45%),
+    radial-gradient(circle at 80% 20%, rgba(27, 67, 50, 0.12), transparent 50%),
+    linear-gradient(120deg, rgba(13, 40, 24, 0.08), transparent 40%);
+}
+
+.section-heritage {
+  background-image:
+    linear-gradient(140deg, rgba(201, 168, 76, 0.18), transparent 45%),
+    radial-gradient(circle at 70% 30%, rgba(45, 106, 79, 0.35), transparent 55%);
+}
+
+.footer-heritage {
+  background-image:
+    radial-gradient(circle at 15% 0%, rgba(201, 168, 76, 0.15), transparent 35%),
+    radial-gradient(circle at 85% 20%, rgba(45, 106, 79, 0.25), transparent 45%);
+}
+
 .text-balance {
   text-wrap: balance;
 }

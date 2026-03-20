@@ -17,7 +17,7 @@ export default async function LandingPage({
 
   return (
     <div className="bg-parchment">
-      <section className="bg-parchment-gradient">
+      <section className="bg-parchment-gradient hero-heritage">
         <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-16 lg:flex-row lg:items-center">
           <div className="flex-1">
             <p className="text-xs uppercase tracking-[0.3em] text-root-500">Ancient African Secrets</p>
@@ -33,7 +33,7 @@ export default async function LandingPage({
                 <Link href={`/${locale}/remedies`}>{t("ctaBrowse")}</Link>
               </Button>
             </div>
-            <div className="mt-6 rounded-lg border border-root-200 bg-linen p-4">
+            <div className="mt-6 rounded-lg border border-ancestral-gold/70 bg-linen/90 p-4 shadow-sm">
               <p className="text-xs uppercase tracking-[0.2em] text-root-500">Join the waitlist</p>
               <div className="mt-3 flex flex-col gap-3 sm:flex-row">
                 <Input type="email" placeholder="you@family.com" />
@@ -85,13 +85,16 @@ export default async function LandingPage({
       <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-8 md:grid-cols-3">
           {[
-            { title: t("value1Title"), body: t("value1Body") },
-            { title: t("value2Title"), body: t("value2Body") },
-            { title: t("value3Title"), body: t("value3Body") }
+            { title: t("value1Title"), body: t("value1Body"), icon: "🧬" },
+            { title: t("value2Title"), body: t("value2Body"), icon: "🌿" },
+            { title: t("value3Title"), body: t("value3Body"), icon: "🏛️" }
           ].map((item) => (
             <Card key={item.title} className="bg-linen">
               <CardContent className="pt-6">
-                <h3 className="font-heading text-xl text-root-800">{item.title}</h3>
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-old-paper text-xl">
+                  {item.icon}
+                </div>
+                <h3 className="mt-4 font-heading text-xl text-root-800">{item.title}</h3>
                 <p className="mt-3 text-sm text-root-600">{item.body}</p>
               </CardContent>
             </Card>
@@ -131,7 +134,7 @@ export default async function LandingPage({
         </div>
       </section>
 
-      <section className="bg-forest-roots">
+      <section className="section-heritage bg-forest-roots">
         <div className="mx-auto max-w-6xl px-6 py-16 text-parchment">
           <p className="text-sm uppercase tracking-[0.3em] text-ancestral-gold">#MyGrandmaKnew</p>
           <h2 className="mt-4 font-display text-4xl">Honor your lineage. Share your remedy.</h2>

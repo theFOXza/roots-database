@@ -8,8 +8,10 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-ancestral-gold text-ancient-bark hover:bg-harvest-gold",
-        secondary: "border border-root-200 bg-linen text-forest-roots hover:border-ancestral-gold",
+        primary:
+          "bg-ancestral-gold text-ancient-bark shadow-sm hover:bg-harvest-gold hover:shadow-soft-gold",
+        secondary:
+          "border border-forest-roots bg-transparent text-forest-roots hover:bg-forest-roots hover:text-parchment",
         ghost: "text-forest-roots hover:bg-old-paper",
         dark: "bg-forest-roots text-parchment hover:bg-canopy"
       },
