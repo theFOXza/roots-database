@@ -1,37 +1,51 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-
 const leaders = [
   { name: "Amina K.", points: 20450, rank: "Griot", region: "West Africa" },
   { name: "Lucia M.", points: 18320, rank: "Elder", region: "Brazil" },
-  { name: "Noah S.", points: 15010, rank: "Root Keeper", region: "South Africa" }
+  { name: "Noah S.", points: 15010, rank: "Root Keeper", region: "South Africa" },
+  { name: "Priya M.", points: 12780, rank: "Herbalist", region: "India" },
+  { name: "Jean-Baptiste L.", points: 10450, rank: "Seedkeeper", region: "Haiti" }
 ];
 
-export default function LeaderboardPage() {
-  return (
-    <div className="mx-auto max-w-5xl px-6 py-12">
-      <div>
-        <p className="text-xs uppercase tracking-[0.2em] text-root-500">Global</p>
-        <h1 className="mt-2 font-heading text-4xl text-root-800">Leaderboard</h1>
-      </div>
+const initialsFromName = (name: string) =>
+  name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
 
-      <div className="mt-8 grid gap-4">
-        {leaders.map((leader, index) => (
-          <Card key={leader.name}>
-            <CardContent className="flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-root-500">#{index + 1}</p>
-                <h2 className="font-heading text-2xl text-root-800">{leader.name}</h2>
-                <p className="text-sm text-root-600">{leader.region}</p>
+export default async function LeaderboardPage({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  await params;
+
+  return (
+    <div className="page active" id="page-leaderboard">
+      <section className="section">
+        <div className="section-default">
+          <p className="eyebrow">Global Leaderboard</p>
+          <h1 className="section-title" style={{ marginBottom: "var(--space-8)" }}>
+            Top Contributors
+          </h1>
+
+          {leaders.map((leader, index) => (
+            <div className="leaderboard-item" key={leader.name}>
+              <div className="lb-rank">{index + 1}</div>
+              <div className="lb-avatar">{initialsFromName(leader.name)}</div>
+              <div className="lb-info">
+                <div className="lb-name">{leader.name}</div>
+                <div className="lb-region">{leader.region}</div>
               </div>
-              <div className="flex items-center gap-3">
-                <Badge>{leader.rank}</Badge>
-                <span className="text-lg font-semibold text-forest-roots">{leader.points.toLocaleString()} pts</span>
+              <span className="lb-badge">{leader.rank}</span>
+              <div className="lb-points">
+                {leader.points.toLocaleString()} <span>pts</span>
               </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

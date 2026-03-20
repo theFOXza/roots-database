@@ -1,66 +1,162 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+export default async function SubmitPage({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  await params;
 
-export default function SubmitPage() {
   return (
-    <div className="mx-auto max-w-4xl px-6 py-12">
-      <div className="mb-8">
-        <p className="text-xs uppercase tracking-[0.2em] text-root-500">60-second submission</p>
-        <h1 className="mt-3 font-heading text-4xl text-root-800">Submit a Remedy</h1>
-        <p className="mt-3 text-root-600">
-          Share what your family swears by. Our research team will validate it and assign a Roots Score.
-        </p>
-      </div>
+    <div className="page active" id="page-submit">
+      <section className="section">
+        <div className="section-wide submit-layout">
+          <div className="submit-form-container">
+            <div className="submit-header">
+              <p className="eyebrow">60-Second Submission</p>
+              <h1>Submit a Remedy</h1>
+              <p style={{ color: "var(--color-text-muted)" }}>
+                Share your family&apos;s traditional remedy. Every submission helps preserve ancestral knowledge for future
+                generations.
+              </p>
+            </div>
 
-      <Card>
-        <CardContent className="grid gap-6 pt-6">
-          <div className="grid gap-2">
-            <label className="text-sm font-semibold text-root-700">Remedy name</label>
-            <Input placeholder="e.g., Turmeric + Black Pepper" />
+            <form onSubmit={(event) => event.preventDefault()}>
+              <div className="form-group">
+                <label className="form-label" htmlFor="remedy-name">
+                  Remedy Name
+                </label>
+                <input type="text" id="remedy-name" className="input-field" placeholder="e.g., Grandmother&apos;s Ginger Tea" />
+              </div>
+              <div className="form-group">
+                <label className="form-label" htmlFor="remedy-for">
+                  What is it for?
+                </label>
+                <input
+                  type="text"
+                  id="remedy-for"
+                  className="input-field"
+                  placeholder="e.g., Stomach aches, colds, joint pain"
+                />
+              </div>
+              <div className="form-group">
+                <label className="form-label" htmlFor="remedy-ingredients">
+                  Key Ingredients
+                </label>
+                <input type="text" id="remedy-ingredients" className="input-field" placeholder="e.g., Fresh ginger, honey, lemon" />
+              </div>
+              <div className="form-group">
+                <label className="form-label" htmlFor="remedy-prep">
+                  Preparation Method
+                </label>
+                <select id="remedy-prep" className="input-field" defaultValue="">
+                  <option value="">Select a method...</option>
+                  <option>Tea / Infusion</option>
+                  <option>Paste / Poultice</option>
+                  <option>Oil / Tincture</option>
+                  <option>Powder</option>
+                  <option>Raw / Fresh</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label className="form-label" htmlFor="remedy-details">
+                  Preparation Details
+                </label>
+                <textarea
+                  id="remedy-details"
+                  className="input-field"
+                  placeholder="Describe how the remedy is prepared and used..."
+                ></textarea>
+              </div>
+              <div className="form-group">
+                <label className="form-label" htmlFor="remedy-origin">
+                  Cultural Origin
+                </label>
+                <input type="text" id="remedy-origin" className="input-field" placeholder="e.g., Yoruba, Nigerian" />
+              </div>
+              <div className="form-group">
+                <label className="form-label" htmlFor="remedy-source">
+                  Source of Knowledge
+                </label>
+                <select id="remedy-source" className="input-field" defaultValue="">
+                  <option value="">How did you learn this?</option>
+                  <option>Grandmother</option>
+                  <option>Mother</option>
+                  <option>Father</option>
+                  <option>Elder / Healer</option>
+                  <option>Community tradition</option>
+                  <option>Other family member</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label className="form-label" htmlFor="remedy-story">
+                  Personal Story <span style={{ color: "var(--color-text-faint)" }}>(Optional)</span>
+                </label>
+                <textarea
+                  id="remedy-story"
+                  className="input-field"
+                  placeholder="Share a memory or story about this remedy..."
+                ></textarea>
+              </div>
+              <button type="submit" className="btn btn-primary btn-lg" style={{ width: "100%", justifyContent: "center" }}>
+                Submit Remedy
+              </button>
+              <p className="submit-disclaimer">
+                By submitting, you agree that this information will be reviewed, validated, and shared as part of the
+                Roots Database. This is not medical advice.
+              </p>
+            </form>
           </div>
-          <div className="grid gap-2">
-            <label className="text-sm font-semibold text-root-700">What is it for?</label>
-            <Input placeholder="Condition or symptom" />
+          <div style={{ position: "sticky", top: "calc(60px + var(--space-8))" }}>
+            <img
+              src="/images/roots-pattern.png"
+              alt=""
+              style={{ borderRadius: "var(--radius-2xl)", opacity: 0.6, maxHeight: "500px", objectFit: "cover", width: "100%" }}
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="card mt-6">
+              <div className="card-body">
+                <h3
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontSize: "var(--text-lg)",
+                    fontWeight: 500,
+                    marginBottom: "var(--space-3)"
+                  }}
+                >
+                  What happens next?
+                </h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
+                  <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "flex-start" }}>
+                    <div className="how-step-num" style={{ width: "28px", height: "28px", fontSize: "var(--text-xs)" }}>
+                      1
+                    </div>
+                    <p style={{ fontSize: "var(--text-sm)", color: "var(--color-text-muted)" }}>
+                      Your remedy enters our review queue
+                    </p>
+                  </div>
+                  <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "flex-start" }}>
+                    <div className="how-step-num" style={{ width: "28px", height: "28px", fontSize: "var(--text-xs)" }}>
+                      2
+                    </div>
+                    <p style={{ fontSize: "var(--text-sm)", color: "var(--color-text-muted)" }}>
+                      Researchers evaluate it across 5 pillars
+                    </p>
+                  </div>
+                  <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "flex-start" }}>
+                    <div className="how-step-num" style={{ width: "28px", height: "28px", fontSize: "var(--text-xs)" }}>
+                      3
+                    </div>
+                    <p style={{ fontSize: "var(--text-sm)", color: "var(--color-text-muted)" }}>
+                      You receive your Roots Score and full report
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="grid gap-2">
-            <label className="text-sm font-semibold text-root-700">Key ingredients</label>
-            <Input placeholder="List the core ingredients" />
-          </div>
-          <div className="grid gap-2">
-            <label className="text-sm font-semibold text-root-700">Preparation method</label>
-            <Input placeholder="Tea, paste, tincture, topical, etc." />
-          </div>
-          <div className="grid gap-2">
-            <label className="text-sm font-semibold text-root-700">Preparation details</label>
-            <Textarea placeholder="Describe how it is made and used." />
-          </div>
-          <div className="grid gap-2">
-            <label className="text-sm font-semibold text-root-700">Cultural origin</label>
-            <Input placeholder="Country/region + community" />
-          </div>
-          <div className="grid gap-2">
-            <label className="text-sm font-semibold text-root-700">Source of knowledge</label>
-            <Input placeholder="Family elder, practitioner, book, etc." />
-          </div>
-          <div className="grid gap-2">
-            <label className="text-sm font-semibold text-root-700">Personal story (optional)</label>
-            <Textarea placeholder="Share a short story (500 characters max)." />
-          </div>
-          <div className="grid gap-4 rounded-lg border border-dashed border-root-300 bg-old-paper px-4 py-6 text-sm text-root-600">
-            <p className="font-semibold text-root-700">Media upload</p>
-            <p>Add a photo or video of the ingredient or preparation. (Optional)</p>
-            <Button variant="secondary" size="sm">Upload file</Button>
-          </div>
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <p className="text-xs text-root-500">
-              By submitting, you agree that this is not medical advice and may be researched by AAS.
-            </p>
-            <Button size="lg">Submit Remedy</Button>
-          </div>
-        </CardContent>
-      </Card>
+        </div>
+      </section>
     </div>
   );
 }

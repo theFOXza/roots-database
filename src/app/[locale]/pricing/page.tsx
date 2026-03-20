@@ -1,63 +1,110 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-
 const tiers = [
   {
     name: "Free",
     price: "$0",
-    description: "Explore the public database and submit remedies.",
-    features: ["Browse all public remedies", "Submit up to 3/day", "Community comments"]
+    description: "Browse remedies and submit your own family traditions to the database.",
+    features: [
+      "Browse all remedies",
+      "Submit up to 3 remedies/month",
+      "View basic Roots Scores",
+      "Join Heritage Challenges"
+    ],
+    cta: "Get Started",
+    buttonClass: "btn btn-outline",
+    featured: false,
+    priceSuffix: ""
   },
   {
     name: "Roots+",
     price: "$9.99",
-    description: "Unlock full research reports and premium insights.",
-    features: ["Full research reports", "Advanced filtering", "Saved collections"]
+    description: "Full access to detailed research reports and the complete scoring breakdown.",
+    features: [
+      "Everything in Free",
+      "Unlimited submissions",
+      "Full 5-pillar score breakdown",
+      "Detailed research reports",
+      "Scientific citations and sources"
+    ],
+    cta: "Subscribe",
+    buttonClass: "btn btn-primary",
+    featured: true,
+    priceSuffix: "/month"
   },
   {
     name: "Founding Member",
     price: "$29",
-    description: "Support the mission and unlock exclusive perks.",
-    features: ["All Roots+ features", "Founding badge", "Priority score releases"]
+    description: "Be part of the founding community. Lifetime access and a permanent founding badge.",
+    features: [
+      "Everything in Roots+",
+      "Founding Member badge",
+      "Early access to new features",
+      "Direct input on roadmap",
+      "Name in founders' wall"
+    ],
+    cta: "Become a Founder",
+    buttonClass: "btn btn-accent",
+    featured: false,
+    priceSuffix: "one-time"
   },
   {
     name: "Enterprise",
     price: "$99",
-    description: "Professional access for practitioners and teams.",
-    features: ["Team access", "Bulk exports", "API access (Phase 3)"]
+    description: "For researchers, universities, and organizations working with traditional medicine data.",
+    features: [
+      "Everything in Roots+",
+      "API access to database",
+      "Bulk data exports",
+      "Custom research reports",
+      "Dedicated support"
+    ],
+    cta: "Contact Us",
+    buttonClass: "btn btn-outline",
+    featured: false,
+    priceSuffix: "/month"
   }
 ];
 
-export default function PricingPage() {
-  return (
-    <div className="mx-auto max-w-6xl px-6 py-12">
-      <div className="mb-10 text-center">
-        <p className="text-xs uppercase tracking-[0.2em] text-root-500">Subscriptions</p>
-        <h1 className="mt-3 font-heading text-4xl text-root-800">Choose your Roots</h1>
-        <p className="mt-3 text-root-600">Support ancestral knowledge and unlock deeper research.</p>
-      </div>
+export default async function PricingPage({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  await params;
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {tiers.map((tier) => (
-          <Card key={tier.name} className="h-full">
-            <CardContent className="flex h-full flex-col gap-4 pt-6">
-              <div>
-                <h2 className="font-heading text-2xl text-root-800">{tier.name}</h2>
-                <p className="mt-2 text-3xl font-semibold text-forest-roots">{tier.price}</p>
-                <p className="mt-2 text-sm text-root-600">{tier.description}</p>
+  return (
+    <div className="page active" id="page-pricing">
+      <section className="section">
+        <div className="section-wide">
+          <div className="text-center" style={{ marginBottom: "var(--space-2)" }}>
+            <p className="eyebrow">Subscriptions</p>
+            <h1 className="section-title">Choose your Roots</h1>
+            <p className="section-desc" style={{ margin: "0 auto" }}>
+              Support the preservation of ancestral wisdom while gaining deeper access to validated remedies and
+              research.
+            </p>
+          </div>
+
+          <div className="pricing-grid">
+            {tiers.map((tier) => (
+              <div key={tier.name} className={`pricing-card${tier.featured ? " featured" : ""}`}>
+                <div className="pricing-name">{tier.name}</div>
+                <div className="pricing-price">
+                  {tier.price} {tier.priceSuffix ? <span>{tier.priceSuffix}</span> : null}
+                </div>
+                <p className="pricing-desc">{tier.description}</p>
+                <ul className="pricing-features" role="list">
+                  {tier.features.map((feature) => (
+                    <li key={feature}>{feature}</li>
+                  ))}
+                </ul>
+                <a href="#" className={tier.buttonClass} style={{ width: "100%", justifyContent: "center" }}>
+                  {tier.cta}
+                </a>
               </div>
-              <ul className="space-y-2 text-sm text-root-600">
-                {tier.features.map((feature) => (
-                  <li key={feature}>• {feature}</li>
-                ))}
-              </ul>
-              <Button className="mt-auto" variant={tier.name === "Roots+" ? "primary" : "secondary"}>
-                Choose {tier.name}
-              </Button>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

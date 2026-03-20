@@ -1,40 +1,167 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import Link from "next/link";
 
-export default function ChallengePage() {
+export default async function ChallengePage({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
   return (
-    <div className="mx-auto max-w-5xl px-6 py-12">
-      <div className="rounded-2xl bg-forest-roots px-8 py-10 text-parchment">
-        <p className="text-xs uppercase tracking-[0.2em] text-ancestral-gold">March Challenge</p>
-        <h1 className="mt-3 font-heading text-4xl">Women’s Wisdom</h1>
-        <p className="mt-3 max-w-xl text-root-100">
-          Submit a remedy taught by the women who raised you. Top contributors earn the Heritage Champion badge.
-        </p>
-        <Button className="mt-6" variant="primary">Join the Challenge</Button>
-      </div>
+    <div className="page active" id="page-challenge">
+      <section className="section">
+        <div className="section-default">
+          <div className="challenge-header">
+            <p className="eyebrow">March Challenge</p>
+            <h1 style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-2xl)", fontWeight: 500, marginBottom: "var(--space-3)" }}>
+              Women&apos;s Wisdom
+            </h1>
+            <p className="section-desc" style={{ margin: "0 auto var(--space-6)" }}>
+              This month, we celebrate the remedies passed down by the women in our families - grandmothers, mothers,
+              aunts, and healers who carried generations of knowledge.
+            </p>
+            <Link href={`/${locale}/submit`} className="btn btn-primary btn-lg">
+              Join the Challenge
+            </Link>
+          </div>
 
-      <div className="mt-10 grid gap-6 md:grid-cols-2">
-        <Card>
-          <CardContent className="pt-6">
-            <h2 className="font-heading text-2xl">This Month’s Submissions</h2>
-            <ul className="mt-4 space-y-3 text-sm text-root-600">
-              <li>Shea + Honey Healing Balm — Ghana</li>
-              <li>Bitter Leaf Tonics — Nigeria</li>
-              <li>Hibiscus Cooling Tea — Sudan</li>
-            </ul>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent className="pt-6">
-            <h2 className="font-heading text-2xl">Prizes</h2>
-            <ul className="mt-4 space-y-3 text-sm text-root-600">
-              <li>🏆 Heritage Champion badge</li>
-              <li>1-year Roots+ subscription</li>
-              <li>Featured on the landing page</li>
-            </ul>
-          </CardContent>
-        </Card>
-      </div>
+          <div className="challenge-grid">
+            <div className="card">
+              <div className="card-body">
+                <h3 style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-lg)", fontWeight: 500, marginBottom: "var(--space-4)" }}>
+                  This Month&apos;s Submissions
+                </h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      padding: "var(--space-2) 0",
+                      borderBottom: "1px solid oklch(from var(--color-text) l c h / 0.06)"
+                    }}
+                  >
+                    <div>
+                      <strong style={{ fontSize: "var(--text-sm)" }}>Shea Butter Healing Salve</strong>
+                      <br />
+                      <span style={{ fontSize: "var(--text-xs)", color: "var(--color-text-muted)" }}>
+                        by Amina K. - West Africa
+                      </span>
+                    </div>
+                    <span className="score-badge score-strong">86</span>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      padding: "var(--space-2) 0",
+                      borderBottom: "1px solid oklch(from var(--color-text) l c h / 0.06)"
+                    }}
+                  >
+                    <div>
+                      <strong style={{ fontSize: "var(--text-sm)" }}>Chamomile and Honey Tonic</strong>
+                      <br />
+                      <span style={{ fontSize: "var(--text-xs)", color: "var(--color-text-muted)" }}>
+                        by Sofia R. - Mexico
+                      </span>
+                    </div>
+                    <span className="score-badge score-growing">74</span>
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) 0" }}>
+                    <div>
+                      <strong style={{ fontSize: "var(--text-sm)" }}>Rooibos Colic Remedy</strong>
+                      <br />
+                      <span style={{ fontSize: "var(--text-xs)", color: "var(--color-text-muted)" }}>
+                        by Thandi M. - South Africa
+                      </span>
+                    </div>
+                    <span className="score-badge score-seedling">58</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="card">
+              <div className="card-body">
+                <h3 style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-lg)", fontWeight: 500, marginBottom: "var(--space-4)" }}>
+                  Prizes
+                </h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+                  <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "flex-start" }}>
+                    <div
+                      style={{
+                        width: "40px",
+                        height: "40px",
+                        borderRadius: "var(--radius-full)",
+                        background: "var(--color-accent-light)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
+                        fontSize: "var(--text-lg)"
+                      }}
+                    >
+                      *
+                    </div>
+                    <div>
+                      <strong style={{ fontSize: "var(--text-sm)" }}>Heritage Champion Badge</strong>
+                      <p style={{ fontSize: "var(--text-xs)", color: "var(--color-text-muted)" }}>
+                        Permanent badge on your profile honoring your contribution
+                      </p>
+                    </div>
+                  </div>
+                  <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "flex-start" }}>
+                    <div
+                      style={{
+                        width: "40px",
+                        height: "40px",
+                        borderRadius: "var(--radius-full)",
+                        background: "var(--color-accent-light)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
+                        fontSize: "var(--text-lg)"
+                      }}
+                    >
+                      *
+                    </div>
+                    <div>
+                      <strong style={{ fontSize: "var(--text-sm)" }}>1 Year Roots+ Subscription</strong>
+                      <p style={{ fontSize: "var(--text-xs)", color: "var(--color-text-muted)" }}>
+                        Free access to advanced research reports and detailed scoring
+                      </p>
+                    </div>
+                  </div>
+                  <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "flex-start" }}>
+                    <div
+                      style={{
+                        width: "40px",
+                        height: "40px",
+                        borderRadius: "var(--radius-full)",
+                        background: "var(--color-accent-light)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
+                        fontSize: "var(--text-lg)"
+                      }}
+                    >
+                      *
+                    </div>
+                    <div>
+                      <strong style={{ fontSize: "var(--text-sm)" }}>Featured on Landing Page</strong>
+                      <p style={{ fontSize: "var(--text-xs)", color: "var(--color-text-muted)" }}>
+                        Your remedy showcased to the entire Roots community
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

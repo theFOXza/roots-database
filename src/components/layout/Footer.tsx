@@ -1,69 +1,54 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export function Footer() {
   const locale = useLocale();
+  const tNav = useTranslations("nav");
+  const tFooter = useTranslations("footer");
 
   return (
-    <footer className="bg-[#0d2818]">
-      <div className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr]">
-          <div>
-            <div className="flex items-center gap-3">
-              <Image
-                src="/images/logo.png"
-                alt="The Roots Database"
-                width={36}
-                height={36}
-                className="h-9 w-9 object-contain"
-              />
-              <span className="font-heading text-xl text-[#F8F4ED]">The Roots Database</span>
-            </div>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-[#8fa898]">
-              Ancient wisdom, verified. Community-sourced, science-backed. Preserving the healing knowledge of our ancestors for generations to come.
-            </p>
-            <p className="mt-6 text-xs text-[#5c7a5e]">A project by Ancient African Secrets</p>
+    <footer className="site-footer">
+      <div className="footer-inner">
+        <div className="footer-grid">
+          <div className="footer-brand">
+            <Link href={`/${locale}`} className="logo" style={{ marginBottom: "var(--space-2)" }}>
+              <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="28" height="28">
+                <path d="M18 3C18 3 12 10 12 18c0 4 1.5 7 3 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <path d="M18 3C18 3 24 10 24 18c0 4-1.5 7-3 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <path d="M18 3v30" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+              <div className="logo-text" style={{ fontSize: "var(--text-base)" }}>
+                The Roots<span>Database</span>
+              </div>
+            </Link>
+            <p>Preserving ancestral wisdom through science and community. A project by Ancient African Secrets.</p>
           </div>
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#C9A84C]">Explore</p>
-            <div className="mt-4 grid gap-3 text-sm">
-              {[
-                { label: "Browse Remedies", href: "/remedies" },
-                { label: "Submit a Remedy", href: "/submit" },
-                { label: "Heritage Challenge", href: "/challenge" },
-                { label: "Leaderboard", href: "/leaderboard" }
-              ].map((link) => (
-                <Link key={link.href} href={`/${locale}${link.href}`} className="text-[#8fa898] hover:text-[#C9A84C] transition">
-                  {link.label}
-                </Link>
-              ))}
-            </div>
+          <div className="footer-col">
+            <h4>Explore</h4>
+            <Link href={`/${locale}/remedies`}>{tNav("browse")}</Link>
+            <Link href={`/${locale}/submit`}>{tNav("submit")}</Link>
+            <Link href={`/${locale}/challenge`}>{tNav("challenge")}</Link>
+            <Link href={`/${locale}/leaderboard`}>{tNav("leaderboard")}</Link>
           </div>
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#C9A84C]">Company</p>
-            <div className="mt-4 grid gap-3 text-sm">
-              {[
-                { label: "About", href: "/about" },
-                { label: "Pricing", href: "/pricing" },
-                { label: "Privacy Policy", href: "/privacy" },
-                { label: "Terms of Service", href: "/terms" }
-              ].map((link) => (
-                <Link key={link.href} href={`/${locale}${link.href}`} className="text-[#8fa898] hover:text-[#C9A84C] transition">
-                  {link.label}
-                </Link>
-              ))}
-            </div>
+          <div className="footer-col">
+            <h4>Company</h4>
+            <Link href={`/${locale}/about`}>{tNav("about")}</Link>
+            <Link href={`/${locale}/pricing`}>{tNav("pricing")}</Link>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
           </div>
         </div>
-      </div>
-      <div className="border-t border-[#1B4332] px-6 py-6">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 text-xs text-[#5c7a5e] md:flex-row md:items-center md:justify-between">
-          <p>This information is not intended to diagnose, treat, cure, or prevent any disease.</p>
-          <p>© 2026 Ancient African Secrets. All rights reserved.</p>
+        <div className="footer-bottom">
+          <p>(c) 2026 Ancient African Secrets. All rights reserved.</p>
+          <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">
+            Created with Perplexity Computer
+          </a>
         </div>
+        <p className="footer-disclaimer">
+          {tFooter("disclaimer")} This platform does not endorse or guarantee the efficacy or safety of any remedy listed.
+        </p>
       </div>
     </footer>
   );
