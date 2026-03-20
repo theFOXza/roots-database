@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "browse": "Explorar",
+    "submit": "Enviar",
+    "challenge": "Desafío de Herencia",
+    "leaderboard": "Clasificación",
+    "pricing": "Precios",
+    "about": "Acerca de",
+    "profile": "Perfil",
+    "signIn": "Iniciar sesión"
+  },
+  "landing": {
+    "heroTitle": "¿Qué juraba tu abuela?",
+    "heroSubtitle": "Sabiduría ancestral, verificada. Comparte el remedio de tu familia y deja que la ciencia cuente la historia.",
+    "ctaSubmit": "Envía el remedio de tu familia",
+    "ctaBrowse": "Explorar la base",
+    "value1Title": "De la comunidad",
+    "value1Body": "Recogido de ancianos, familias y practicantes de todo el mundo.",
+    "value2Title": "Validado por ciencia",
+    "value2Body": "Cada remedio obtiene un Roots Score en cinco pilares.",
+    "value3Title": "Con raíces culturales",
+    "value3Body": "Honra los orígenes, preserva historias y comparte con respeto."
+  },
+  "footer": {
+    "disclaimer": "Esta información no pretende diagnosticar, tratar, curar ni prevenir ninguna enfermedad."
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "browse": "Explorer",
+    "submit": "Soumettre",
+    "challenge": "Défi Héritage",
+    "leaderboard": "Classement",
+    "pricing": "Tarifs",
+    "about": "À propos",
+    "profile": "Profil",
+    "signIn": "Se connecter"
+  },
+  "landing": {
+    "heroTitle": "À quoi ta grand-mère jurait-elle ?",
+    "heroSubtitle": "Sagesse ancestrale, vérifiée. Partage le remède de ta famille et laisse la science raconter l'histoire.",
+    "ctaSubmit": "Soumettre le remède familial",
+    "ctaBrowse": "Explorer la base",
+    "value1Title": "Communautaire",
+    "value1Body": "Recueilli auprès d'aînés, de familles et de praticiens du monde entier.",
+    "value2Title": "Validé par la science",
+    "value2Body": "Chaque remède reçoit un Roots Score sur cinq piliers.",
+    "value3Title": "Ancré culturellement",
+    "value3Body": "Honorer les origines, préserver les histoires, partager avec respect."
+  },
+  "footer": {
+    "disclaimer": "Ces informations ne visent pas à diagnostiquer, traiter, guérir ou prévenir une maladie."
+  }
+}

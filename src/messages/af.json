@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "home": "Tuis",
+    "browse": "Blaai",
+    "submit": "Dien in",
+    "challenge": "Erfenis-uitdaging",
+    "leaderboard": "Ranglys",
+    "pricing": "Pryse",
+    "about": "Oor",
+    "profile": "Profiel",
+    "signIn": "Teken in"
+  },
+  "landing": {
+    "heroTitle": "Waarby het jou ouma gesweer?",
+    "heroSubtitle": "Antieke wysheid, bevestig. Deel jou familie se middel en laat die wetenskap die storie vertel.",
+    "ctaSubmit": "Dien jou familie se middel in",
+    "ctaBrowse": "Verken die databasis",
+    "value1Title": "Gemeenskapsgedrewe",
+    "value1Body": "Vasgelê van ouer mense, families en praktisyns wêreldwyd.",
+    "value2Title": "Wetenskaplik bevestig",
+    "value2Body": "Elke middel kry 'n Roots Score oor vyf pilare.",
+    "value3Title": "Kultureel gewortel",
+    "value3Body": "Eer oorspronge, bewaar stories en deel verantwoordelik."
+  },
+  "footer": {
+    "disclaimer": "Hierdie inligting is nie bedoel om enige siekte te diagnoseer, behandel, genees of te voorkom nie."
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "home": "Home",
+    "browse": "Browse",
+    "submit": "Submit",
+    "challenge": "Heritage Challenge",
+    "leaderboard": "Leaderboard",
+    "pricing": "Pricing",
+    "about": "About",
+    "profile": "Profile",
+    "signIn": "Sign in"
+  },
+  "landing": {
+    "heroTitle": "What did your grandmother swear by?",
+    "heroSubtitle": "Ancient wisdom, verified. Share your family's remedy and let science tell the story.",
+    "ctaSubmit": "Submit Your Family Remedy",
+    "ctaBrowse": "Explore the Database",
+    "value1Title": "Community-sourced",
+    "value1Body": "Captured from elders, families, and practitioners worldwide.",
+    "value2Title": "Science-validated",
+    "value2Body": "Every remedy earns a Roots Score across five pillars.",
+    "value3Title": "Culturally rooted",
+    "value3Body": "Honor origins, preserve stories, and share responsibly."
+  },
+  "footer": {
+    "disclaimer": "This information is not intended to diagnose, treat, cure, or prevent any disease."
+  }
+}

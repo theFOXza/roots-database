@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "home": "Início",
+    "browse": "Explorar",
+    "submit": "Enviar",
+    "challenge": "Desafio de Herança",
+    "leaderboard": "Ranking",
+    "pricing": "Preços",
+    "about": "Sobre",
+    "profile": "Perfil",
+    "signIn": "Entrar"
+  },
+  "landing": {
+    "heroTitle": "No que sua avó acreditava?",
+    "heroSubtitle": "Sabedoria ancestral, verificada. Compartilhe o remédio da sua família e deixe a ciência contar a história.",
+    "ctaSubmit": "Enviar remédio da família",
+    "ctaBrowse": "Explorar a base",
+    "value1Title": "Feito pela comunidade",
+    "value1Body": "Recolhido de anciãos, famílias e praticantes do mundo todo.",
+    "value2Title": "Validado pela ciência",
+    "value2Body": "Cada remédio recebe um Roots Score em cinco pilares.",
+    "value3Title": "Enraizado na cultura",
+    "value3Body": "Honre origens, preserve histórias e compartilhe com respeito."
+  },
+  "footer": {
+    "disclaimer": "Estas informações não têm a intenção de diagnosticar, tratar, curar ou prevenir qualquer doença."
+  }
+}

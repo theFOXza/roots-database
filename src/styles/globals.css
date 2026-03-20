@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+:root {
+  --color-forest-roots: #1b4332;
+  --color-ancient-bark: #0d2818;
+  --color-canopy: #2d6a4f;
+  --color-ancestral-gold: #c9a84c;
+  --color-harvest-gold: #e8b84b;
+  --color-earth-brown: #7c5c3a;
+  --color-parchment: #f8f4ed;
+  --color-linen: #fdfaf5;
+  --color-old-paper: #f0ebe0;
+  --color-tier-gold: #d4a017;
+  --color-tier-silver: #8fa898;
+  --color-tier-bronze: #c4723a;
+  --color-tier-seedling: #5a8f5c;
+  --color-tier-unverified: #8a9bae;
+  --color-root-50: #f8f4ed;
+  --color-root-100: #efe9dc;
+  --color-root-200: #e0d5c5;
+  --color-root-300: #c9baa5;
+  --color-root-400: #a8947e;
+  --color-root-500: #7c6b57;
+  --color-root-600: #5c4f3a;
+  --color-root-700: #3d3226;
+  --color-root-800: #2a2219;
+  --color-root-900: #1a150f;
+  --color-success: #2d6a4f;
+  --color-warning: #d97706;
+  --color-error: #b45309;
+  --color-info: #0e7490;
+  --color-safety: #4a7c59;
+  --font-heading: "Lora", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+}
+
+* {
+  border-color: var(--color-root-200);
+}
+
+body {
+  background: var(--color-parchment);
+  color: var(--color-root-700);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: rgba(201, 168, 76, 0.3);
+}
+
+.shadow-warm {
+  box-shadow: 0 12px 30px rgba(27, 67, 50, 0.12);
+}
+
+.border-heritage {
+  border: 1px solid var(--color-root-200);
+}
+
+.text-balance {
+  text-wrap: balance;
+}

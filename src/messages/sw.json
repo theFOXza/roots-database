@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "home": "Nyumbani",
+    "browse": "Vinjari",
+    "submit": "Wasilisha",
+    "challenge": "Changamoto ya Urithi",
+    "leaderboard": "Uongozi",
+    "pricing": "Bei",
+    "about": "Kuhusu",
+    "profile": "Wasifu",
+    "signIn": "Ingia"
+  },
+  "landing": {
+    "heroTitle": "Bibi yako aliapa kwa nini?",
+    "heroSubtitle": "Hekima ya kale, imethibitishwa. Shiriki tiba ya familia yako na sayansi iseme hadithi.",
+    "ctaSubmit": "Wasilisha tiba ya familia",
+    "ctaBrowse": "Vinjari hifadhidata",
+    "value1Title": "Kutoka kwa jamii",
+    "value1Body": "Imekusanywa kutoka kwa wazee, familia na wataalamu duniani.",
+    "value2Title": "Imethibitishwa kisayansi",
+    "value2Body": "Kila tiba hupata Roots Score kwenye nguzo tano.",
+    "value3Title": "Mizizi ya kitamaduni",
+    "value3Body": "Heshimu asili, hifadhi hadithi na shiriki kwa uwajibikaji."
+  },
+  "footer": {
+    "disclaimer": "Taarifa hii haikusudiwi kutambua, kutibu, kuponya au kuzuia ugonjwa wowote."
+  }
+}
