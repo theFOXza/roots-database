@@ -5,9 +5,11 @@ import Image from "next/image";
 import { useLocale } from "next-intl";
 
 const navLinks = [
-  { label: "About", href: "/about" },
-  { label: "Remedies", href: "/remedies" },
-  { label: "Submit", href: "/submit" }
+  { label: "Browse", href: "/remedies" },
+  { label: "Heritage Challenge", href: "/challenge" },
+  { label: "Leaderboard", href: "/leaderboard" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "About", href: "/about" }
 ];
 
 export function Navbar() {
@@ -29,7 +31,7 @@ export function Navbar() {
             <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[#C9A84C]">DATABASE</span>
           </div>
         </Link>
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="flex items-center gap-6">
           {navLinks.map((item) => (
             <Link
               key={item.href}
@@ -39,12 +41,18 @@ export function Navbar() {
               {item.label}
             </Link>
           ))}
-          {/* Hamburger placeholder */}
-          <button className="flex flex-col gap-1.5 p-1">
-            <span className="block h-0.5 w-5 bg-[#d4ccb8]" />
-            <span className="block h-0.5 w-5 bg-[#d4ccb8]" />
-            <span className="block h-0.5 w-5 bg-[#d4ccb8]" />
-          </button>
+          <Link
+            href={`/${locale}/auth/sign-in`}
+            className="text-sm text-[#d4ccb8] transition hover:text-[#C9A84C]"
+          >
+            Sign In
+          </Link>
+          <Link
+            href={`/${locale}/submit`}
+            className="bg-[#C9A84C] px-5 py-2 text-sm font-semibold text-[#1B4332] transition hover:bg-[#e8b84b]"
+          >
+            Submit
+          </Link>
         </nav>
       </div>
     </header>
